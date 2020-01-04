@@ -175,8 +175,8 @@ func update(c *gin.Context) {
 	}
 
 	db.Model(&todo).Update("title", c.PostForm("title"))
-	completed, _ := strconv.ParseBool(c.PostForm("completed"))
 	db.Model(&todo).Update("description", c.PostForm("description"))
+	completed, _ := strconv.ParseBool(c.PostForm("completed"))
 	db.Model(&todo).Update("completed", completed)
 
 	c.JSON(
